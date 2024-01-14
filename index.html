@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Avrin Jewelry</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
+    <link rel="manifest" href="favicon/site.webmanifest"/>
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#2b5797"/>
+    <meta name="theme-color" content="#ffffff"/>
+</head>
+
+<body>
+<main>
+    <div class="img-container">
+        <img id="faNameImage" src="assets/img/mohammadzadeh.png" alt="Salesperson"/>
+        <img id="logoImage" src="assets/img/logo.png" alt="Avrin Gold Logo"/>
+        <img id="enNameImage" src="assets/img/avrin.png" alt="Shop Name"/>
+    </div>
+
+    <div class="container">
+        <h1 id="title">
+            محاسبه قیمت طلا
+        </h1>
+        <div class="date-time">
+            <span id="date" class="date"></span>
+            <span id="time" class="time"></span>
+        </div>
+        <form id="survey-form">
+            <div class="form-rows">
+                <h2>
+                    نام کالا
+                </h2>
+                <input type="text" id="jewelry_name" name="name" class="input-fields"
+                       placeholder="نام جنس را وارد کنید">
+            </div>
+            <div class="form-rows">
+                <h2>
+                    وزن طلا
+                </h2>
+                <input type="number" id="gold_weight" name="weight" class="input-fields" step="0.01"
+                       placeholder="وزن طلا را وارد کنید" required>
+            </div>
+
+            <div class="form-rows input-radio">
+                <h2>
+                    محاسبه قیمت براساس
+                </h2>
+                <div class="unit-fields">
+                    <input name="weight-unit" id="radio-btn1" type="radio" value="1" class="user-selection"
+                           required>
+                    <p class="font-size-15">
+                        مثقال
+                    </p>
+                    <span></span>
+                    <input name="weight-unit" id="radio-btn2" type="radio" value="2" class="user-selection">
+                    <p class="font-size-15">
+                        گرم
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-rows">
+                <h2>
+                    قیمت هر
+                    <span id="weight-type">
+                            ؟
+                    </span>
+                    طلا
+                </h2>
+                <input type="text" id="price" class="input-fields" placeholder="قیمت طلا را وارد کنید"
+                       pattern="^[\d,]+$" required>
+            </div>
+
+            <div class="form-rows">
+                <h2>
+                    اجرت ثابت
+                </h2>
+                <input type="number" id="fixed-wage" class="input-fields" placeholder="اجرت ثابت را وارد کنید"
+                       step="0.01" required>
+            </div>
+
+            <div class="form-rows">
+                <h2>
+                    درصد سود
+                </h2>
+                <input type="number" id="profit-percentage" class="input-fields" placeholder="درصد سود را وارد کنید"
+                       value="7" step="0.01" required>
+            </div>
+
+            <div class="form-rows">
+                <h2>
+                    درصد مالیات
+                </h2>
+                <input type="number" id="tax-percentage" class="input-fields" placeholder="درصد مالیات" value="2"
+                       step="0.01" required>
+            </div>
+
+            <button class="btn btn-primary" type="submit" onclick="compute_gold_price_with_details(event)">
+                محاسبه قیمت
+            </button>
+        </form>
+
+    </div>
+    <br>
+    <div class="show-output">
+        <div class="form-rows">
+            <p class="font-size-25">
+                <b>
+                    قیمت کل:
+                    <span id="result">
+                            0
+                        </span>
+                    تومان
+                </b>
+            </p>
+
+            <button class="btn btn-outline-primary" id="sub_price" onclick="displayPriceDetails()">
+                نمایش ریز محاسبات
+            </button>
+            <div id="price-details" style="display: none">
+                <ul id="details">
+                    <li><b>ارزش کل طلای خام: </b><span id="micro-weight-price">0</span> تومان</li>
+                    <li><b>سود کل: </b><span id="micro-profit">0</span> تومان</li>
+                    <li><b>مالیات کل: </b><span id="micro-tax">0</span> تومان</li>
+                </ul>
+            </div>
+
+            <button class="btn btn-primary" id="history" onclick="write_in_history()">
+                تاریخچه
+            </button>
+        </div>
+    </div>
+
+    <div id="popup-box" class="modal">
+        <div class="content">
+            <a href="javascript:closeForm();" class="box-close">
+                <svg fill="#000000" height="10px" width="10px" id="Capa_1"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 208.891 208.891" xml:space="preserve">
+                        <path d="M0,170l65.555-65.555L0,38.891L38.891,0l65.555,65.555L170,0l38.891,38.891l-65.555,65.555L208.891,170L170,208.891
+	l-65.555-65.555l-65.555,65.555L0,170z"/>
+                    </svg>
+            </a>
+        </div>
+        <div id='history-table'>
+
+        </div>
+    </div>
+    <div id="overlay" onclick="closeForm()"></div>
+</main>
+<script src="assets/js/script.js"></script>
+</body>
+
+</html>
