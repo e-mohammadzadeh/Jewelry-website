@@ -66,6 +66,7 @@ main {
 
 .container .date-time {
   border-bottom: 1px solid #e3e3e3;
+  font-size: 10px;
 }
 
 .date-time .date {
@@ -85,7 +86,7 @@ main {
 .input-fields {
   border: none;
   background: #f3f3f3;
-  margin: 15px -10px 15px 40px;
+  margin: 15px -4px 15px 20px;
   padding: 18px;
   border-radius: 20px;
   font-size: 12px;
