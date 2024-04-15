@@ -1,1 +1,6 @@
-
+steps:
+  - name: My step
+    env:
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+    run: ...
