@@ -1,5 +1,3 @@
-const USERNAME = '09148421375';
-const PASSWORD = '1375';
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
 const loginUrl = "http://2.187.249.48:8080/login";
