@@ -155,16 +155,13 @@ function compute_gold_price_with_details(event) {
     document.getElementById("history").style.display = "block";
 
     let weight_price = (weight_ * price_).toFixed(2);
-    let weight_price_show = weight_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    document.getElementById("micro-weight-price").innerHTML = weight_price_show;
+    document.getElementById("micro-weight-price").innerHTML = weight_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     let total_profit = (((parseFloat(weight_price) + wages_) * profit_) / 100).toFixed(2);
-    let total_profit_show = total_profit.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    document.getElementById("micro-profit").innerHTML = total_profit_show;
+    document.getElementById("micro-profit").innerHTML = total_profit.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     let total_tax = (((parseFloat(total_profit) + wages_) * tax_) / 100).toFixed(2);
-    let total_tax_show = total_tax.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    document.getElementById("micro-tax").innerHTML = total_tax_show;
+    document.getElementById("micro-tax").innerHTML = total_tax.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     if (!inputs.some(obj => obj.jewelry_name === jewelry_name_)) {
         inputs.push({
