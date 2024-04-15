@@ -1,5 +1,8 @@
-const USERNAME = process.env.USERNAME;
-const PASSWORD = process.env.PASSWORD;
+var username_ = prompt("Please enter your username");
+var password_ = prompt("Please enter your password");
+
+const USERNAME = username_;
+const PASSWORD = password_;
 const loginUrl = "http://2.187.249.48:8080/login";
 const infoUrl = "http://2.187.249.48:8080/get-last-price-list";
 const radio_button1 = document.getElementById("radio-btn1");
