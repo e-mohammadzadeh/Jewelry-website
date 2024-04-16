@@ -1,7 +1,7 @@
 const USERNAME = prompt("Please enter your username");
 const PASSWORD = prompt("Please enter your password");
 const loginUrl = "https://cors-anywhere.herokuapp.com/http://2.187.249.48:8080/login";
-const infoUrl = "http://2.187.249.48:8080/get-last-price-list";
+const infoUrl = "https://cors-anywhere.herokuapp.com/http://2.187.249.48:8080/get-last-price-list";
 const radio_button1 = document.getElementById("radio-btn1");
 const radio_button2 = document.getElementById("radio-btn2");
 
